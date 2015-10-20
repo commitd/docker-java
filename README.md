@@ -15,9 +15,11 @@ You can go further by deleting the JavaFX and other platform specific libraries,
 
 ## Entrypoints
 
-The entrypoint is setup to be 'java'. So you can run commands such as:
+The entrypoint is setup to be 'java' and directory called /java is offered the working directory and a shared volume. So you can run commands such as:
 
-    docker run committed/java -jar myjar.jar
+    docker run -u $(id -u) -v $(pwd):/java committed/java -jar jar-in-current-directory-on-host.jar
+
+This will run the Jar file from the current directory (on the host) as the host user.
 
 If you wish to access the container without running Java, then you can override with --entrypoint:
 

@@ -11,6 +11,9 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | te
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && rm -rf /var/cache/oracle-jdk8-installer \
-  && rm -rf /usr/lib/jvm/java-8-oracle/*src.zip /usr/lib/jvm/java-8-oracle/lib/missioncontrol /usr/lib/jvm/java-8-oracle/lib/visualvm
+  && rm -rf /usr/lib/jvm/java-8-oracle/*src.zip /usr/lib/jvm/java-8-oracle/lib/missioncontrol /usr/lib/jvm/java-8-oracle/lib/visualvm \
+  && mkdir /java
 
+WORKDIR /java
+VOLUME /java
 ENTRYPOINT ["java"] 
